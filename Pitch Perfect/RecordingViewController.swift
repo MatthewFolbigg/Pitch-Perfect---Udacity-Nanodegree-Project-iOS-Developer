@@ -70,7 +70,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         if flag {
             performSegue(withIdentifier: "recordingStopped", sender: audioRecorder.url)
         } else {
-            print("Recording Failed")
+            showAlert("Recording Failed", message: "Audio recording failed. Please try again.")
         }
     }
     
@@ -87,6 +87,12 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             stopButton.isEnabled = false
             recordButton.isEnabled = true
         }
+    }
+    
+    func showAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
