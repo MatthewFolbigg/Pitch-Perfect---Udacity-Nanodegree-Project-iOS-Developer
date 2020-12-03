@@ -21,16 +21,12 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     
     
     //MARK: Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI(forRecordingStatus: false)
     }
 
-
+    
     //MARK: IB Actions
     @IBAction func recordButtonDidTapped(_ sender: AnyObject) {
         configureUI(forRecordingStatus: true)
